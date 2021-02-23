@@ -1,6 +1,6 @@
 # Remote-Keyboard
 
-App para conectarse desde el celular y manejar el teclado de la compu de manera remota a través del servidor local.
+App para conectarse desde el celular y manejar el teclado de la computadora de manera remota a través del servidor local.
 
 # Requerimientos
 - Windows
@@ -29,3 +29,18 @@ botón.
 
 Ejemplo: 'Hello' + enter ---> Escribir 'Hello' y apretar 'Enter'.
 ****************************************************************
+Apretar "Exit" para salir.
+****************************************************************
+
+
+# Teclas disponibles
+- Ingreso de texto UTF-8.
+- Space.
+- Enter.
+- Arrows (Left, Right, Up, Down).
+- Escape,
+- Backspace,
+- Delete,
+- Ctrl (+ HotKeys)
+- Volume Up,
+- Volume Down
