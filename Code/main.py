@@ -1,10 +1,9 @@
 # Networking
 from http.server import HTTPServer
 from socket import gethostname, gethostbyname
-from sys import argv
 
 # Handler
-from Handler import RHandler, update_ip, resource_path
+from Handler import RHandler, update_ip, resource_path, sys
 
 def print_instructions():
     with open (resource_path(".\\Instructions.txt"), 'rb') as file: text = file.read()
@@ -21,9 +20,9 @@ if __name__ == '__main__':
     server = HTTPServer(server_address=('', 8000), RequestHandlerClass=RHandler)
 
     # Console output
-    if not '-I' in argv: print_instructions()
+    if not '-I' in sys.argv: print_instructions()
 
-    print(f"IP:Puerto --> {myIP}:8000\n")
+    print(f"\nIP:Puerto --> {myIP}:8000\n")
 
     # Loops until 'Exit' is pressed
     while RHandler.running: server.handle_request()
