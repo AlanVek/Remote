@@ -9,5 +9,4 @@ document.getElementsByTagName('head')[0].appendChild(meta);
 
 document.addEventListener('touchmove', event => event.preventDefault(), false);
 
-// const focus = document.getElementById("input").focus;
-const _focus = ()=> document.getElementById('input').focus()
+const _focus = () => document.getElementById("input").focus();

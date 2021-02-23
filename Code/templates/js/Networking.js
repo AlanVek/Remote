@@ -22,7 +22,7 @@ const altf4 = 'altf4';
 
 const myFunc = keyword => {
 
-    const ip = 'http://192.168.0.96:8000/';                         
+    const ip = 'http://192.168.0.96:8000/';                              
     let sender = ip;
     let x = new XMLHttpRequest();
 
