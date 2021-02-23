@@ -19,12 +19,15 @@ const ctrl = 'ctrl';
 const esc = 'esc';
 const shft = 'shift';
 const altf4 = 'altf4';
-
+const voldown = 'media_volume_down';
+const volup = 'media_volume_up';
+//const voldown = 'volumedown';
+//const volup = 'volumeup';
 const question = '__sign__'
 
 const myFunc = keyword => {
 
-    const ip = 'http://192.168.0.96:8000/';                 
+    const ip = 'http://192.168.0.96:8000/';                                                        
     let sender = ip;
     let x = new XMLHttpRequest();
 
@@ -35,7 +38,9 @@ const myFunc = keyword => {
     }
 
     sender = sender.replaceAll('?', question)
+
     x.open("GET", sender, true);
     x.send( null );
     document.getElementById(input).value = ''
 };
+

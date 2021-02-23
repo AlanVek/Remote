@@ -5,7 +5,8 @@ pyinstaller ./main.py --onefile --hidden-import="pynput.keyboard._win32" ^
 --add-data "./templates/js/Behavior.js;./templates/js" ^
 --add-data "./templates/js/Networking.js;./templates/js" ^
 --add-data "./Instructions.txt;." ^
---hidden-import "./Handler.py"
+--hidden-import "./Handler.py" ^
+--hidden-import "./keyDict.py"
 
 cd..
 copy .\Code\dist\Remote_Keyboard.exe .\Executable /Y

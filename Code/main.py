@@ -1,6 +1,7 @@
 # Networking
 from http.server import HTTPServer
 from socket import gethostname, gethostbyname
+from sys import argv
 
 # Handler
 from Handler import RHandler, update_ip, resource_path
@@ -20,10 +21,12 @@ if __name__ == '__main__':
     server = HTTPServer(server_address=('', 8000), RequestHandlerClass=RHandler)
 
     # Console output
-    print_instructions()
+    if not '-I' in argv: print_instructions()
+
     print(f"IP:Puerto --> {myIP}:8000\n")
 
     # Loops until 'Exit' is pressed
     while RHandler.running: server.handle_request()
     server.server_close()
+
 
