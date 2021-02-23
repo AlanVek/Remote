@@ -14,6 +14,7 @@ import os
 # Keyword for special/repeat keys.
 KEYWORD_KEY = 'keyboard.Key.'
 KEY_SEPARATOR = '!_!'
+QUESTION = '__sign__'
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
@@ -118,7 +119,7 @@ class RHandler(BaseHTTPRequestHandler):
 
     # Input parser from URL to usable info
     def path_parser(self):
-        return unquote(self.path[1:].replace('favicon.ico', ''))
+        return unquote(self.path[1:].replace('favicon.ico', '')).replace(QUESTION, '?')
 
     # Prevents server from logging output
     def log_message(self, format, *args):
@@ -181,3 +182,5 @@ class RHandler(BaseHTTPRequestHandler):
 
         # If word doesn't match exit sequence, types word
         else: controller.type(word)
+
+

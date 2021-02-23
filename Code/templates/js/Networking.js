@@ -20,9 +20,11 @@ const esc = 'esc';
 const shft = 'shift';
 const altf4 = 'altf4';
 
+const question = '__sign__'
+
 const myFunc = keyword => {
 
-    const ip = 'http://192.168.0.96:8000/';                                                   
+    const ip = 'http://192.168.0.96:8000/';                 
     let sender = ip;
     let x = new XMLHttpRequest();
 
@@ -32,8 +34,7 @@ const myFunc = keyword => {
         sender += document.getElementById(input).value;
     }
 
-    sender = sender.replace('?', '%3F')
-
+    sender = sender.replaceAll('?', question)
     x.open("GET", sender, true);
     x.send( null );
     document.getElementById(input).value = ''
