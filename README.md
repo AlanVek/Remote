@@ -38,9 +38,9 @@ Apretar "Exit" para salir.
 - Space.
 - Enter.
 - Arrows (Left, Right, Up, Down).
-- Escape,
-- Backspace,
-- Delete,
-- Ctrl (+ HotKeys)
-- Volume Up,
-- Volume Down
+- Escape.
+- Backspace.
+- Delete.
+- Ctrl (+ HotKeys).
+- Volume Up.
+- Volume Down.
