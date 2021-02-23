@@ -15,9 +15,9 @@ y apretar la primera tecla.
 
 Ejemplo: ctrl+v ---> Escribir 'v' (o 'V') y apretar 'ctrl'.
 ****************************************************************
-* Para los botones (salvo ctrl, alt y shift), se puede escribir
-un número n en el input antes de apretar la tecla. Esto hará que
-dicha tecla se aprete n veces.
+* Para los botones (salvo ctrl, alt y shift), todo el texto que
+esté escrito en el input será escrito antes de apretar dicho
+botón.
 
-Ejemplo: '   '  ---> Escribir '3' y apretar 'Space'.
+Ejemplo: 'Hello' + enter ---> Escribir 'Hello' y apretar 'Enter'.
 ****************************************************************

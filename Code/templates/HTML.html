@@ -1,34 +1,44 @@
 <html>
-
+    
 <head>
     <title>HTML</title>
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
 <body>
-    <div class="flex" style="top: 20px;">
-        <button id="exit" onclick=myFunc(exit_input)>Exit</button>
-        <input id="input" placeholder="Texto a enviar..." autofocus type="text">
-        <button id="Send" onclick=myFunc(go_string)>Send</button>
+    <div class="flex" style="top: 1vh;justify-content: space-between;">
+        <button id="exit" class="barra" style="width: 20vw;" onclick="myFunc(exit_string);/*_focus();*/">Exit</button>
+        <form id="myForm" onsubmit="myFunc(enter);">
+            <input id="input" style="height: 6vh; width: 53vw;" placeholder="Texto a enviar..." auto_focus type="text"
+                autocomplete="off" />
+        </form>
+        <button id="Send" class="barra" style="width: 20vw;" onclick="myFunc(go_string);_focus();">Send</button>
     </div>
-    <div class="flex" style="top: 50px;">
-        <button class="botoncito" id="Esc" onclick=myFunc(esc)>Esc</button>
-        <button class="botoncito" id="Enter" onclick=myFunc(enter)>Enter</button>
-        <button class="botoncito" id="Back" onclick=myFunc(back)>Back</button>
-        <button class="botoncito" id="Supr" onclick=myFunc(supr)>Supr</button>
-    </div>
-    <div class="flex" style="top: 111.33px;">
-        <button class="botoncito" id="Ctrl" onclick=myFunc(ctrl)>Ctrl</button>
-        <button class="botoncito" id="Alt" onclick=myFunc(alt)>Alt</button>
-        <button class="botoncito" id="Shift" onclick=myFunc(shft)>Shift</button>
-    </div>
-    <button class="botoncito flechita" id="Up" onclick=myFunc(up)>>></button>
-    <button class="botoncito flechita" id="Right" onclick=myFunc(right)>>></button>
-    <button class="botoncito flechita" id="Down" onclick=myFunc(down)>>></button>
-    <button class="botoncito flechita" id="Left" onclick=myFunc(left)>>></button>
-    <button class="" id="barra" onclick=myFunc(space)>Space</button>
-</body>
+    <div class="flex" style="top: 9vh;">
+        <button class="botoncito" id="Esc" onclick="myFunc(esc);_focus();">Esc</button>
+        <button class="botoncito" id="Alt" onclick="myFunc(alt);_focus();">Alt</button>
+        <button class="botoncito" id="Supr" onclick="myFunc(supr);_focus();">Supr</button>
+        <button class="botoncito" id="altf4" onclick="myFunc(altf4);_focus();">Alt+F4</button>
 
-<script type="text/javascript" src="./js/script.js"></script>
+    </div>
+    <div class="flex" style="top: 19vh;">
+        <button class="botoncito" id="Ctrl" onclick="myFunc(ctrl);_focus();">Ctrl</button>
+        <button class="botoncito" id="barra" onclick="myFunc(space);_focus();">Space</button>
+        <button class="botoncito" id="Shift" onclick="myFunc(shft);_focus();">Shift</button>
+    </div>
+    <div class="flex" style="top: 45vh; justify-content: space-between;">
+        <button class="barra" id="Back" onclick="myFunc(back);_focus();">Backspace</button>
+        <button class="barra" id="Enter" onclick="myFunc(enter);_focus();">Enter</button>
+    </div>
+    <button class="botoncito flechita" id="Up" onclick="myFunc(up);_focus();">>></button>
+    <button class="botoncito flechita" id="Right" onclick="myFunc(right);_focus();">>></button>
+    <button class="botoncito flechita" id="Down" onclick="myFunc(down);_focus();">>></button>
+    <button class="botoncito flechita" id="Left" onclick="myFunc(left);_focus();">>></button>
+</body>
+<script type="text/javascript" src="./js/Behavior.js"></script>
+<script type="text/javascript" src="./js/Networking.js"></script>
 
 </html>
+

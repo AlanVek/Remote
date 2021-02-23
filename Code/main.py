@@ -26,3 +26,4 @@ if __name__ == '__main__':
     # Loops until 'Exit' is pressed
     while RHandler.running: server.handle_request()
     server.server_close()
+

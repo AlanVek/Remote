@@ -25,12 +25,12 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
-# Updates script.js with current IP for permissions and requests.
+# Updates Behaviour.js with current IP for requests.
 def update_ip(cls):
-    with open(resource_path('.\\templates\\js\\script.js'), 'rt') as file: data = file.read()
+    with open(resource_path('.\\templates\\js\\Networking.js'), 'rt') as file: data = file.read()
 
     data = data.replace(data[data.find('const ip =') : data.find('const ip =') + 39], f"const ip = 'http://{cls.IP}:8000/'; ")
-    with open(resource_path('.\\templates\\js\\script.js'), 'wt') as file: file.write(data)
+    with open(resource_path('.\\templates\\js\\Networking.js'), 'wt') as file: file.write(data)
 
 # Keyboard controller for key-pressing.
 controller = keyboard.Controller()
@@ -46,7 +46,8 @@ class RHandler(BaseHTTPRequestHandler):
     # Project files
     files = {
         'html' : '',
-        'js' : '',
+        'js_beh' : '',
+        'js_net' : '',
         'css' : ''
     }
 
@@ -87,8 +88,17 @@ class RHandler(BaseHTTPRequestHandler):
         # Checks requets for CSS
         elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = 'css\\style.css'): pass
 
-        # Checks requst for JS
-        elif self.req_file(posible = ['/js/script.js'], variable = 'js', location = 'js\\script.js'): pass
+        # Checks requst for JS Behaviour
+        elif self.req_file(posible = ['/js/Behaviour.js'], variable = 'js_beh', location = 'js\\Behaviour.js'): pass
+
+        # Checks requst for JS Networking
+        elif self.req_file(posible = ['/js/Networking.js'], variable = 'js_net', location = 'js\\Networking.js'): pass
+
+        elif 'altf4' in self.path:
+            controller.press(keyboard.Key.alt)
+            controller.press(keyboard.Key.f4)
+            controller.release(keyboard.Key.alt)
+            controller.release(keyboard.Key.f4)
 
         # Checks special/repeat keys
         elif KEYWORD_KEY in self.path:
@@ -150,15 +160,14 @@ class RHandler(BaseHTTPRequestHandler):
     # Repeat key handling
     def repeat_key(self, pos : int):
 
-        # Input parser for repeat amount
-        try: tot = int(self.path[pos + 1:])
-        except ValueError or IndexError: tot = 1
-
         # Translates repeat key
         key_name = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
+        self.path = self.path[pos : ]
 
-        # Taps key {tot} times
-        for i in range(tot): controller.tap(self.repeat[key_name])
+        self.just_text()
+
+        # Taps key
+        controller.tap(self.repeat[key_name])
 
     # Text input handling
     def just_text(self):
@@ -171,4 +180,3 @@ class RHandler(BaseHTTPRequestHandler):
 
         # If word doesn't match exit sequence, types word
         else: controller.type(word)
-
