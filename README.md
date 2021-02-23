@@ -10,13 +10,15 @@ App para conectarse desde el celular y manejar el teclado de la compu de manera 
 
 # Instrucciones
 
-Luego de las instrucciones, aparecerá la dirección IP y
-el puerto para entrar con el celular desde cualquier navegador.
+Luego de las instrucciones, aparecerá la dirección IP y el
+puerto para entrar con el celular desde cualquier navegador.
+Celular y la computadora deben estar conectados a la misma red.
 ****************************************************************
 Para ingresar texto, escribirlo en el cuadro de input y
-apretar "Send".
+apretar "Send" del programa o "Ir" del telado del celular.
+"Ir" es equivalente a apretar el botón "enter".
 ****************************************************************
-Para usar HotKeys (ctrl, Alt_GR_ shift), escribir la segunda 
+Para usar HotKeys (ctrl, Alt_GR, shift), escribir la segunda
 tecla en el input y apretar la primera tecla.
 
 Ejemplo: ctrl+v ---> Escribir 'v' (o 'V') y apretar 'ctrl'.
