@@ -1,7 +1,7 @@
 /* Keywords */
 const exit_string = "CodeEscape_Exit";
 const keyboard = "keyboard.Key.";
-const key_separator = '?';
+const key_separator = '!_!';
 const input = "input";
 const go_string = "Go";
 
@@ -22,7 +22,7 @@ const altf4 = 'altf4';
 
 const myFunc = keyword => {
 
-    const ip = 'http://192.168.0.96:8000/';                              
+    const ip = 'http://192.168.0.96:8000/';                                                   
     let sender = ip;
     let x = new XMLHttpRequest();
 
@@ -32,7 +32,7 @@ const myFunc = keyword => {
         sender += document.getElementById(input).value;
     }
 
-    console.log(sender);
+    sender = sender.replace('?', '%3F')
 
     x.open("GET", sender, true);
     x.send( null );

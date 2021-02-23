@@ -13,6 +13,7 @@ import os
 
 # Keyword for special/repeat keys.
 KEYWORD_KEY = 'keyboard.Key.'
+KEY_SEPARATOR = '!_!'
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
@@ -102,7 +103,7 @@ class RHandler(BaseHTTPRequestHandler):
 
         # Checks special/repeat keys
         elif KEYWORD_KEY in self.path:
-            pos = self.path.rfind('?')
+            pos = self.path.rfind(KEY_SEPARATOR)
 
             maybe_special = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
 
@@ -117,7 +118,7 @@ class RHandler(BaseHTTPRequestHandler):
 
     # Input parser from URL to usable info
     def path_parser(self):
-        return unquote(self.path[1:]).replace('favicon.ico', '')
+        return unquote(self.path[1:].replace('favicon.ico', ''))
 
     # Prevents server from logging output
     def log_message(self, format, *args):
@@ -145,7 +146,7 @@ class RHandler(BaseHTTPRequestHandler):
     def special_key(self, pos : int, maybe_special : str):
 
         # Checks if special key comes with extra letter
-        try: key_letter = keyboard.KeyCode(char=self.path[pos + 1].lower())
+        try: key_letter = keyboard.KeyCode(char=self.path[pos + len(KEY_SEPARATOR)].lower())
         except IndexError: key_letter = False
 
         # Translates special key
@@ -162,7 +163,7 @@ class RHandler(BaseHTTPRequestHandler):
 
         # Translates repeat key
         key_name = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
-        self.path = self.path[pos : ]
+        self.path = self.path[pos + len(KEY_SEPARATOR) - 1 : ]
 
         self.just_text()
 
