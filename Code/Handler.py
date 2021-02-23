@@ -89,7 +89,7 @@ class RHandler(BaseHTTPRequestHandler):
         elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = 'css\\style.css'): pass
 
         # Checks requst for JS Behaviour
-        elif self.req_file(posible = ['/js/Behaviour.js'], variable = 'js_beh', location = 'js\\Behaviour.js'): pass
+        elif self.req_file(posible = ['/js/Behavior.js'], variable = 'js_beh', location = 'js\\Behavior.js'): pass
 
         # Checks requst for JS Networking
         elif self.req_file(posible = ['/js/Networking.js'], variable = 'js_net', location = 'js\\Networking.js'): pass

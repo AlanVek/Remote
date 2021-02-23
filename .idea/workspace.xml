@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c67452a0-d3b0-4c91-b5e5-447f29ce8df3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Code/Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Instructions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Instructions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/templates/js/Behavior.js" beforeDir="false" afterPath="$PROJECT_DIR$/Code/templates/js/Behavior.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/templates/js/Networking.js" beforeDir="false" afterPath="$PROJECT_DIR$/Code/templates/js/Networking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Executable/Remote_Keyboard.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Executable/Remote_Keyboard.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Testing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
