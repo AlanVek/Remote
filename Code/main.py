@@ -28,4 +28,3 @@ if __name__ == '__main__':
     while RHandler.running: server.handle_request()
     server.server_close()
 
-

@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c67452a0-d3b0-4c91-b5e5-447f29ce8df3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Code/Instructions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Instructions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/Handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/Handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/keyDict.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/keyDict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/templates/HTML.html" beforeDir="false" afterPath="$PROJECT_DIR$/Code/templates/HTML.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/templates/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Code/templates/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/templates/js/Networking.js" beforeDir="false" afterPath="$PROJECT_DIR$/Code/templates/js/Networking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Executable/Remote_Keyboard.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Executable/Remote_Keyboard.exe" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +52,54 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alanv\PycharmProjects\Remote_Keyboard\Code" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="keyDict" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Remote_Keyboard" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Code" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Code/keyDict.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Remote_Keyboard" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/OneDrive/Documentos/Downloads" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/OneDrive/Documentos/Downloads/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Remote_Keyboard" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,7 +136,17 @@
       <workItem from="1614087442210" duration="1201000" />
       <workItem from="1614096600258" duration="2289000" />
       <workItem from="1614103615821" duration="1382000" />
+      <workItem from="1614191157541" duration="1005000" />
+      <workItem from="1614276129936" duration="1436000" />
     </task>
+    <task id="LOCAL-00001" summary="Minor changes in Instructions.">
+      <created>1614106532872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614106532873</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,5 +166,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Minor changes in Instructions." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes in Instructions." />
   </component>
 </project>

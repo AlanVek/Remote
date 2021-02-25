@@ -1,6 +1,19 @@
 from pynput import keyboard
+from ctypes import ArgumentError
 
-keyDictionary = {
+controller = keyboard.Controller()
+
+class __defDict(dict):
+    def __init__(self, *args, **kwargs):
+        if 'function' in kwargs: self.function = kwargs.pop('function')
+        else: self.function = lambda v: v
+        super().__init__(*args, **kwargs)
+
+    def __getitem__(self, item):
+        if not item in self: super().__setitem__(item, self.function(item))
+        return super().__getitem__(item)
+
+keyDict = __defDict({
     "alt": keyboard.Key.alt,
     "alt_l": keyboard.Key.alt_l,
     "alt_r": keyboard.Key.alt_r,
@@ -61,4 +74,10 @@ keyDictionary = {
     "pause": keyboard.Key.pause,
     "print_screen": keyboard.Key.print_screen,
     "scroll_lock": keyboard.Key.scroll_lock
-}
+}, function = keyboard.KeyCode.from_char)
+
+def hotkey(*args):
+    try:
+        for arg in args: controller.press(keyDict[arg])
+        for arg in reversed(args): controller.release(keyDict[arg])
+    except ArgumentError: pass

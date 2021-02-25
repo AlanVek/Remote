@@ -2,7 +2,7 @@
 from http.server import BaseHTTPRequestHandler
 
 # Keyboard
-from keyDict import keyboard, keyDictionary
+from keyDict import *
 
 # URL parsing
 from urllib.parse import unquote
@@ -12,10 +12,11 @@ import sys
 from os.path import abspath, join
 
 # Keywords
-KEYWORD_KEY = 'keyboard.Key.'
-KEY_SEPARATOR = '!_!'
+KEYWORD_KEY = '__special__'
+KEY_SEPARATOR = '__separator__'
 QUESTION = '__sign__'
-KEYWORD_EXIT = 'CodeEscape_Exit'
+KEYWORD_EXIT = '__exit__'
+# HOTKEY = 'hotkey'
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
@@ -23,7 +24,7 @@ def resource_path(relative_path):
     try:
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
-    except Exception:
+    except AttributeError:
         base_path = abspath(".")
 
     return join(base_path, relative_path)
@@ -34,13 +35,6 @@ def update_ip(cls):
 
     data = data.replace(data[data.find('const ip =') : data.find('const ip =') + 39], f"const ip = 'http://{cls.IP}:8000/'; ")
     with open(resource_path('.\\templates\\js\\Networking.js'), 'wt') as file: file.write(data)
-
-# Keyboard controller for key-keyDowning.
-controller = keyboard.Controller()
-
-def hotKey(*args):
-    for arg in args: controller.press(arg)
-    for arg in args: controller.release(arg)
 
 # Class RHandler for server.
 class RHandler(BaseHTTPRequestHandler):
@@ -59,7 +53,7 @@ class RHandler(BaseHTTPRequestHandler):
     def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
-        self.send_header('Access-Control-Allow-Origin', RHandler.IP)
+        #self.send_header('Access-Control-Allow-Origin', RHandler.IP)
         self.end_headers()
 
     # GET handling
@@ -78,8 +72,13 @@ class RHandler(BaseHTTPRequestHandler):
         # Checks requst for JS Networking
         elif self.req_file(posible = ['/js/Networking.js'], variable = 'js_net', location = 'js\\Networking.js'): pass
 
-        elif 'altf4' in self.path:
-            hotKey(keyDictionary['alt'], keyDictionary['f4'])
+        elif 'alt+f4' in self.path:
+            hotkey('alt', 'f4')
+
+        # elif 'hotkey' in self.path:
+        #     print(self.path)
+        #     pos = self.path.find('hotkey')
+        #     hotkey(*self.path[pos + 6 : ].split('+'))
 
         # Checks special/repeat keys
         elif KEYWORD_KEY in self.path:
@@ -130,17 +129,17 @@ class RHandler(BaseHTTPRequestHandler):
         except IndexError: key_letter = False
 
         # presses and releases (Hot)Key.
-        if key_letter: hotKey(
-            keyDictionary[maybe_special],
-            keyDictionary.get(key_letter, keyboard.KeyCode(char = key_letter))
+        if key_letter: hotkey(
+           maybe_special,
+            key_letter
         )
-        else: controller.tap(keyDictionary[maybe_special])
+        else: controller.tap(keyDict[maybe_special])
 
     # Repeat key handling
     def repeat_key(self, pos : int):
 
         # Translates repeat key
-        key = keyDictionary[self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]]
+        key = keyDict[self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]]
         self.path = self.path[pos + len(KEY_SEPARATOR) - 1 : ]
 
         self.just_text()
@@ -159,4 +158,5 @@ class RHandler(BaseHTTPRequestHandler):
 
         # If word doesn't match exit sequence, types word
         else: controller.type(word)
+
 
