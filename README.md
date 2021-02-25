@@ -44,3 +44,4 @@ Apretar "Exit" para salir.
 - Ctrl (+ HotKeys).
 - Volume Up.
 - Volume Down.
+- Win
