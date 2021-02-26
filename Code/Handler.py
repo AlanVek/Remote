@@ -40,6 +40,7 @@ def update_ip(cls):
 class RHandler(BaseHTTPRequestHandler):
 
     running = True
+    selection = False
 
     # Project files
     files = {
@@ -60,8 +61,10 @@ class RHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_response()
 
+        if 'checkbox' in self.path: RHandler.selection = not RHandler.selection
+
         # Checks request for HTML
-        if self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass
+        elif self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass
 
         # Checks requets for CSS
         elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = 'css\\style.css'): pass
@@ -74,6 +77,7 @@ class RHandler(BaseHTTPRequestHandler):
 
         elif 'alt+f4' in self.path:
             hotkey('alt', 'f4')
+        elif 'wintab' in self.path: hotkey('cmd', 'tab')
 
         # elif 'hotkey' in self.path:
         #     print(self.path)
@@ -139,13 +143,15 @@ class RHandler(BaseHTTPRequestHandler):
     def repeat_key(self, pos : int):
 
         # Translates repeat key
-        key = keyDict[self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]]
+        key =self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
         self.path = self.path[pos + len(KEY_SEPARATOR) - 1 : ]
 
         self.just_text()
 
         # Taps key
-        controller.tap(key)
+
+        if RHandler.selection and key in ['up', 'down', 'left', 'right']: hotkey('shift', key)
+        else: controller.tap(keyDict[key])
 
     # Text input handling
     def just_text(self):

@@ -16,6 +16,11 @@
 
 Ejemplo: ctrl+v ---> Escribir 'v' (o 'V') y apretar 'ctrl'.
 ****************************************************************
+* Cuando 'Selection' esté activado, todas las teclas se
+* comportarán igual, salvo las flechas. Éstas se comportarán
+* como si 'Shift' estuviera también apretado, con lo cual cumple
+* la función de selección.
+****************************************************************
 * Para los botones (salvo ctrl, alt y shift), todo el texto que
 * esté escrito en el input será escrito antes de apretar dicho
 * botón.

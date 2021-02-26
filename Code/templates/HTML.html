@@ -18,9 +18,11 @@
     </div>
     <div class="flex" style="top: 9vh;">
         <button class="botoncito" id=esc onclick="myFunc(esc);_focus();">Esc</button>
+        <button class="botoncito" id=tab onclick="myFunc(tab);_focus();">Tab</button>
         <button class="botoncito" id=voldown onclick="myFunc(voldown);_focus();">Vol-</button>
         <button class="botoncito" id=volup onclick="myFunc(volup);_focus();">Vol+</button>
         <button class="botoncito" id=altf4 onclick="myFunc(altf4);_focus();">Alt+F4</button>
+        <button class="botoncito" id=wintab onclick="myFunc(wintab);_focus();"><span style = "font-size: 10px;">Win+Tab</span></button>
 
     </div>
     <div class="flex" style="top: 19vh;">
@@ -29,6 +31,11 @@
         <button class="botoncito" id=supr onclick="myFunc(supr);_focus();">Supr</button>
 	<button class="botoncito" id=cmd onclick="myFunc(cmd);_focus();">Win</button>
 <!--        <button class="botoncito" id=hotkey onclick="myFunc(hotkey);_focus();">HotKey</button>-->
+
+        <div style="height: 7vh;" onclick="myFunc(checkbox);_focus()">
+        <input type="checkbox" class = "check" id=checkbox><span class="textCheck">Selection</span></input>
+        </div>
+
     </div>
     <div class="flex" style="top: 45vh; justify-content: space-between;">
         <button class="barra" id=back onclick="myFunc(back);_focus();">Backspace</button>

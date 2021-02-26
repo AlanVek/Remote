@@ -28,6 +28,26 @@ body {
     font-weight: 600;
 }
 
+.check{
+    width: 15px;
+    height: 15px;
+    position: relative;
+    /*float: left;*/
+    outline: 2px solid black;
+    margin-right: 5px;
+    top: 30%;
+    padding: 0;
+}
+
+.textCheck{
+    font-size: 14px;
+    color: #ddd;
+    font-weight: 600;
+    top:25%;
+    position: relative;
+}
+
+
 #Left {
     transform: translate(-175%, 100%) rotate(-90deg);
 }

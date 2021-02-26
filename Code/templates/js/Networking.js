@@ -27,16 +27,22 @@ const volup = 'media_volume_up';
 //const voldown = 'volumedown';
 //const volup = 'volumeup';
 const cmd = 'cmd';
+const tab = 'tab';
+wintab = 'wintab';
 
+const checkbox = "checkbox";
 const hotkey = 'hotkey';
 
 const myFunc = keyword => {
 
-    const ip = 'http://192.168.0.96:8000/';                                                                                                
+    const ip = 'http://192.168.0.96:8000/';                                                                                                                                          
     let sender = ip;
     let x = new XMLHttpRequest();
 
-    if (keyword === exit_string) sender += exit_string;
+    if (keyword === exit_string){
+        sender += exit_string;
+        document.getElementById(checkbox).checked = false;
+    }
     else{
 //        if (keyword === hotkey) sender += keyword;
         if (keyword !== go_string) sender += keyboard + keyword + key_separator;

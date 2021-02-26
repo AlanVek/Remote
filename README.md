@@ -45,3 +45,7 @@ Apretar "Exit" para salir.
 - Volume Up.
 - Volume Down.
 - Win
+- Tab
+- Alt + F4 (HotKey).
+- Win + Tab (HotKey).
+- Selección (Shift + [arrows])
