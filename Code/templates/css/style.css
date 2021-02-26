@@ -36,15 +36,16 @@ body {
     outline: 2px solid black;
     margin-right: 5px;
     top: 30%;
-    padding: 0;
+    left: 8%
 }
 
 .textCheck{
     font-size: 14px;
     color: #ddd;
     font-weight: 600;
-    top:25%;
+    top:22%;
     position: relative;
+    left: 10%
 }
 
 
@@ -83,6 +84,41 @@ body {
     height: 6vh;
     /*38.64;*/
     left: 50%;
-    top: 50vh;
     font-weight: 600;
 }
+#voldown{
+    background-image: url("https://visualpharm.com/assets/317/Low Volume-595b40b85ba036ed117dc9a0.svg");
+}
+.image{
+    background-position: center;
+    background-image: url("https://visualpharm.com/assets/710/High%20Volume-595b40b85ba036ed117dc9a1.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#container{
+    height: calc(7vh - 6px);
+    width: calc(( 100vw - 6 * 7vh ) / 7 + 14vh - 6px);
+    border: solid black 0px;
+}
+#mouse{
+    height: 33vh;
+    width: 33vh;
+    top: 53vh;
+    position: absolute;
+    border: solid black 0.1vh;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+}
+#joystick{
+    height: 11vh;
+    width: 11vh;
+    top: 64vh;
+    left: calc(50vw - 5.5vh);
+    position: absolute;
+    border-radius: 50%;
+    /* background: rgb(192, 192, 192); */
+    background-image: radial-gradient(rgb(214, 214, 214),rgb(102, 102, 102));
+}
+
+

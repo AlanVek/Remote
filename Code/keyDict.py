@@ -1,7 +1,7 @@
 from pynput import keyboard
 from ctypes import ArgumentError
 
-controller = keyboard.Controller()
+key_cont = keyboard.Controller()
 
 class __defDict(dict):
     def __init__(self, *args, **kwargs):
@@ -78,6 +78,6 @@ keyDict = __defDict({
 
 def hotkey(*args):
     try:
-        for arg in args: controller.press(keyDict[arg])
-        for arg in reversed(args): controller.release(keyDict[arg])
+        for arg in args: key_cont.press(keyDict[arg])
+        for arg in reversed(args): key_cont.release(keyDict[arg])
     except ArgumentError: pass

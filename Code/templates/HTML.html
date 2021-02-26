@@ -1,5 +1,5 @@
 <html>
-    
+
 <head>
     <title>HTML</title>
     <meta name="viewport"
@@ -9,7 +9,8 @@
 
 <body>
     <div class="flex" style="top: 1vh;justify-content: space-between;">
-        <button id=exit_string class="barra" style="width: 20vw;" onclick="myFunc(exit_string);/*_focus();*/">Exit</button>
+        <button id=exit_string class="barra" style="width: 20vw;"
+            onclick="myFunc(exit_string);/*_focus();*/">Exit</button>
         <form id="myForm" onsubmit="myFunc(enter);">
             <input id="input" style="height: 6vh; width: 53vw;" placeholder="Texto a enviar..." auto_focus type="text"
                 autocomplete="off" />
@@ -19,21 +20,21 @@
     <div class="flex" style="top: 9vh;">
         <button class="botoncito" id=esc onclick="myFunc(esc);_focus();">Esc</button>
         <button class="botoncito" id=tab onclick="myFunc(tab);_focus();">Tab</button>
-        <button class="botoncito" id=voldown onclick="myFunc(voldown);_focus();">Vol-</button>
-        <button class="botoncito" id=volup onclick="myFunc(volup);_focus();">Vol+</button>
-        <button class="botoncito" id=altf4 onclick="myFunc(altf4);_focus();">Alt+F4</button>
-        <button class="botoncito" id=wintab onclick="myFunc(wintab);_focus();"><span style = "font-size: 10px;">Win+Tab</span></button>
+        <button class="botoncito image" id=voldown onclick="myFunc(voldown);_focus();"></button>
+        <button class="botoncito image" id=volup onclick="myFunc(volup);_focus();"></button>
+        <button class="botoncito" id=altf4 onclick="myFunc(hotkey + altf4);_focus();">Alt+F4</button>
+        <button class="botoncito" id=wintab onclick="myFunc(hotkey + wintab);_focus();"><span
+                style="font-size: 10px;">Win+Tab</span></button>
 
     </div>
     <div class="flex" style="top: 19vh;">
         <button class="botoncito" id=ctrl onclick="myFunc(ctrl);_focus();">Ctrl</button>
         <button class="botoncito" id=space onclick="myFunc(space);_focus();">Space</button>
         <button class="botoncito" id=supr onclick="myFunc(supr);_focus();">Supr</button>
-	<button class="botoncito" id=cmd onclick="myFunc(cmd);_focus();">Win</button>
-<!--        <button class="botoncito" id=hotkey onclick="myFunc(hotkey);_focus();">HotKey</button>-->
-
-        <div style="height: 7vh;" onclick="myFunc(checkbox);_focus()">
-        <input type="checkbox" class = "check" id=checkbox><span class="textCheck">Selection</span></input>
+        <button class="botoncito" id=cmd onclick="myFunc(cmd);_focus();">Win</button>
+        <!--        <button class="botoncito" id=hotkey onclick="myFunc(hotkey);_focus();">HotKey</button>-->
+        <div id="container" class="botoncito" onclick="myFunc(checkbox);_focus()">
+            <input type="checkbox" class="check" id=checkbox><span class="textCheck">Selection</span></input>
         </div>
 
     </div>
@@ -41,13 +42,31 @@
         <button class="barra" id=back onclick="myFunc(back);_focus();">Backspace</button>
         <button class="barra" id=enter onclick="myFunc(enter);_focus();">Enter</button>
     </div>
+
+
+    <div class="flex" style="top: 85vh; justify-content: space-between;">
+        <button class="barra" id=lclick onclick="myFunc(mouseclick + lclick);">LClick</button>
+        <button class="barra" id=rclick onclick="myFunc(mouseclick + rclick);">RClick</button>
+
+    </div>
+
+
+
     <button class="botoncito flechita" id=up onclick="myFunc(up);_focus();">>></button>
     <button class="botoncito flechita" id=right onclick="myFunc(right);_focus();">>></button>
     <button class="botoncito flechita" id=down onclick="myFunc(down);_focus();">>></button>
     <button class="botoncito flechita" id=left onclick="myFunc(left);_focus();">>></button>
+    <div id="mouse"></div>
+    <div id="joystick"></div>
+
+<!--    <div class="flex" style="justify-content: space-between;">-->
+<!--        <button class="barra" id=lclick onclick="myFunc(mouseclick + lclick);">LClick</button>-->
+<!--        <button class="barra" id=rclick onclick="myFunc(mouseclick + rclick);">RClick</button>-->
+<!---->
+<!--    </div>-->
 </body>
-<script type="text/javascript" src="./js/Behavior.js"></script>
-<script type="text/javascript" src="./js/Networking.js"></script>
+<script type="text/javascript" src = './js/Behavior.js'></script>
+<script type="text/javascript" src = 'js/Keyboard.js'></script>
+<script type="text/javascript" src = 'js/Mouse.js'></script>
 
 </html>
-

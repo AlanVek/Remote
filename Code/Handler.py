@@ -3,6 +3,8 @@ from http.server import BaseHTTPRequestHandler
 
 # Keyboard
 from keyDict import *
+from mouseDict import *
+# from pyautogui import move
 
 # URL parsing
 from urllib.parse import unquote
@@ -16,7 +18,10 @@ KEYWORD_KEY = '__special__'
 KEY_SEPARATOR = '__separator__'
 QUESTION = '__sign__'
 KEYWORD_EXIT = '__exit__'
-# HOTKEY = 'hotkey'
+HOTKEY = 'hotkey'
+DIST = 5
+MOUSE = '__mouse__'
+CLICK = '__click__'
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
@@ -31,22 +36,24 @@ def resource_path(relative_path):
 
 # Updates Behaviour.js with current IP for requests.
 def update_ip(cls):
-    with open(resource_path('.\\templates\\js\\Networking.js'), 'rt') as file: data = file.read()
+    with open(resource_path('.\\templates\\js\\Keyboard.js'), 'rt') as file: data = file.read()
 
     data = data.replace(data[data.find('const ip =') : data.find('const ip =') + 39], f"const ip = 'http://{cls.IP}:8000/'; ")
-    with open(resource_path('.\\templates\\js\\Networking.js'), 'wt') as file: file.write(data)
+    with open(resource_path('.\\templates\\js\\Keyboard.js'), 'wt') as file: file.write(data)
 
 # Class RHandler for server.
 class RHandler(BaseHTTPRequestHandler):
 
     running = True
     selection = False
+    # w, h = size()
 
     # Project files
     files = {
         'html' : '',
         'js_beh' : '',
-        'js_net' : '',
+        'js_key' : '',
+        'js_mouse': '',
         'css' : ''
     }
 
@@ -61,28 +68,30 @@ class RHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_response()
 
-        if 'checkbox' in self.path: RHandler.selection = not RHandler.selection
+        if MOUSE in self.path:
+            self.move_mouse()
+
+        elif CLICK in self.path: self.click()
+
+        elif 'checkbox' in self.path: RHandler.selection = not RHandler.selection
 
         # Checks request for HTML
         elif self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass
 
-        # Checks requets for CSS
+        # Checks request for CSS
         elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = 'css\\style.css'): pass
 
-        # Checks requst for JS Behaviour
+        # Checks request for JS Behavior
         elif self.req_file(posible = ['/js/Behavior.js'], variable = 'js_beh', location = 'js\\Behavior.js'): pass
 
-        # Checks requst for JS Networking
-        elif self.req_file(posible = ['/js/Networking.js'], variable = 'js_net', location = 'js\\Networking.js'): pass
+        # Checks request for JS Keyboard
+        elif self.req_file(posible = ['/js/Keyboard.js'], variable = 'js_key', location = 'js\\Keyboard.js'): pass
 
-        elif 'alt+f4' in self.path:
-            hotkey('alt', 'f4')
-        elif 'wintab' in self.path: hotkey('cmd', 'tab')
+        # Checks request for JS Mouse.
+        elif self.req_file(posible = ['/js/Mouse.js'], variable = 'js_mouse', location = 'js\\Mouse.js'): pass
 
-        # elif 'hotkey' in self.path:
-        #     print(self.path)
-        #     pos = self.path.find('hotkey')
-        #     hotkey(*self.path[pos + 6 : ].split('+'))
+        elif HOTKEY in self.path:
+            hotkey(*self.path[self.path.find(HOTKEY) + len(HOTKEY) : ].split('+'))
 
         # Checks special/repeat keys
         elif KEYWORD_KEY in self.path:
@@ -129,21 +138,18 @@ class RHandler(BaseHTTPRequestHandler):
     def special_key(self, pos : int, maybe_special : str):
 
         # Checks if special key comes with extra letter
-        try: key_letter = self.path[pos + len(KEY_SEPARATOR) : ].lower()
+        try: key_letter = self.path[pos + len(KEY_SEPARATOR)].lower()
         except IndexError: key_letter = False
 
         # presses and releases (Hot)Key.
-        if key_letter: hotkey(
-           maybe_special,
-            key_letter
-        )
-        else: controller.tap(keyDict[maybe_special])
+        if key_letter: hotkey(maybe_special, key_letter)
+        else: key_cont.tap(keyDict[maybe_special])
 
     # Repeat key handling
     def repeat_key(self, pos : int):
 
         # Translates repeat key
-        key =self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
+        key = self.path[self.path.find(KEYWORD_KEY) + len(KEYWORD_KEY) : pos]
         self.path = self.path[pos + len(KEY_SEPARATOR) - 1 : ]
 
         self.just_text()
@@ -151,7 +157,7 @@ class RHandler(BaseHTTPRequestHandler):
         # Taps key
 
         if RHandler.selection and key in ['up', 'down', 'left', 'right']: hotkey('shift', key)
-        else: controller.tap(keyDict[key])
+        else: key_cont.tap(keyDict[key])
 
     # Text input handling
     def just_text(self):
@@ -163,6 +169,21 @@ class RHandler(BaseHTTPRequestHandler):
         if word == KEYWORD_EXIT: RHandler.running = False
 
         # If word doesn't match exit sequence, types word
-        else: controller.type(word)
+        else: key_cont.type(word)
+
+    def move_mouse(self):
+
+        xpos_path = self.path.find('x')
+        ypos_path = self.path.find('y')
+
+        x_rel = float(self.path[xpos_path + 2 : ypos_path]) + .4
+        y_rel = float(self.path[ypos_path + 2: ])
+
+        mouse_cont.move(x_rel * DIST, y_rel * DIST)
+        # move(x_rel * DIST, y_rel * DIST, _pause=False, duration = .05)
+
+    def click(self):
+        pos_button = self.path.find(CLICK)
+        mouse_cont.click(mouseDict[self.path[pos_button + len(CLICK) : ]])
 
 
