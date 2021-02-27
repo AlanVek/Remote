@@ -1,5 +1,5 @@
 pyinstaller Code/main.py --onefile --hidden-import="pynput.keyboard._win32" ^
---hidden-import="pynput.mouse._win32" -n "Remote_Keyboard" ^
+--hidden-import="pynput.mouse._win32" -n "Remote" ^
 --add-data "Code/Request_Handler/templates/HTML.html;Code/Request_Handler/templates" ^
 --add-data "Code/Request_Handler/templates/css/style.css;Code/Request_Handler/templates/css" ^
 --add-data "Code/Request_Handler/templates/js/Behavior.js;Code/Request_Handler/templates/js" ^
@@ -12,4 +12,4 @@ pyinstaller Code/main.py --onefile --hidden-import="pynput.keyboard._win32" ^
 --exclude pandas --exclude numpy --exclude scipy --exclude PyQt5 ^
 --exclude matplotlib --exclude PIL
 
-copy .\dist\Remote_Keyboard.exe .\Executable /Y
+copy .\dist\Remote.exe .\Executable /Y

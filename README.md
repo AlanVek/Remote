@@ -1,6 +1,6 @@
-# Remote-Keyboard
+# Remote
 
-App para conectarse desde el celular y manejar el teclado de la computadora de manera remota a través del servidor local.
+App para conectarse desde el celular y manejar el teclado y mouse de la computadora de manera remota a través del servidor local.
 
 # Requerimientos
 - Windows
