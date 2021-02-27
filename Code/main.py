@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # Console output
     if not '-I' in sys.argv: print_instructions()
 
-    print(f"\nIP:Puerto --> {myIP}:8000\n")
+    print(f"\nIP:Port --> {myIP}:8000\n")
 
     # Loops until 'Exit' is pressed
     while RHandler.running: server.handle_request()
