@@ -73,7 +73,7 @@ class RHandler(BaseHTTPRequestHandler):
 
         elif CLICK in self.path: self.click()
 
-        elif 'checkbox' in self.path: RHandler.selection = not RHandler.selection
+        elif '__checkbox__' in self.path: RHandler.selection = not RHandler.selection
 
         # Checks request for HTML
         elif self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass

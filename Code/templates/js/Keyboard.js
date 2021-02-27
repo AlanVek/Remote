@@ -8,7 +8,7 @@ const myFunc = keyword => {
 
     if (keyword === exit_string){
         sender += exit_string;
-        document.getElementById(checkbox).checked = false;
+        document.getElementById("checkbox").checked = false;
     }
     else{
         if (keyword.indexOf(hotkey) !== -1) sender += keyword;
@@ -57,7 +57,7 @@ const rclick = 'right';
 const lclick = 'left';
 const mouseclick = '__click__';
 
-const checkbox = "checkbox";
+const checkbox = "__checkbox__";
 const hotkey = 'hotkey';
 
 
