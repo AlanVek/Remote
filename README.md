@@ -27,7 +27,7 @@ Objective: ctrl+v
 Steps: Write 'v' (or 'V') and press 'ctrl'.
 ****************************************************************
 For special keys (except ctrl), all the text written in the
-text-input slot will be written in the computer before pressing
+text-input slot will be written to the computer before pressing
 said key.
 
 Example: 
