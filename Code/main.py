@@ -3,10 +3,10 @@ from http.server import HTTPServer
 from socket import gethostname, gethostbyname
 
 # Handler
-from Handler import RHandler, update_ip, resource_path, sys
+from Handler.Handler import RHandler, update_ip, resource_path, sys
 
 def print_instructions():
-    with open (resource_path(".\\Instructions.txt"), 'rb') as file: text = file.read()
+    with open (resource_path("Code\\Instructions.txt"), 'rb') as file: text = file.read()
     print(text.decode('utf-8'))
 
 if __name__ == '__main__':
