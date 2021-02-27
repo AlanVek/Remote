@@ -1,5 +1,5 @@
 from pynput import keyboard
-from ctypes import ArgumentError
+from ctypes import ArgumentError as ArgErr
 
 key_cont = keyboard.Controller()
 
@@ -80,4 +80,4 @@ def hotkey(*args):
     try:
         for arg in args: key_cont.press(keyDict[arg])
         for arg in reversed(args): key_cont.release(keyDict[arg])
-    except ArgumentError: pass
+    except ArgErr: pass
