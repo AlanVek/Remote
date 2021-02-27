@@ -21,7 +21,9 @@ To use hotkeys (ctrl), the user must write the second key in the
 text-input slot and press the special key.
 
 Example: 
+
 Objective: ctrl+v
+
 Steps: Write 'v' (or 'V') and press 'ctrl'.
 ****************************************************************
 For special keys (except ctrl), all the text written in the
@@ -29,7 +31,9 @@ text-input slot will be written in the computer before pressing
 said key.
 
 Example: 
+
 Objective: 'Hello' + enter
+
 Steps: Write 'Hello' and press 'Enter'.
 ****************************************************************
 If the checkbox "Selection" is checked, all the keys will
