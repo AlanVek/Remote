@@ -96,8 +96,8 @@ body {
     background-size: contain;
 }
 #container{
-    height: calc(7vh - 6px);
-    width: calc(( 100vw - 6 * 7vh ) / 7 + 14vh - 6px);
+    height: calc(7vh);
+    width: calc(( 100vw - 6 * 7vh ) / 7 + 14vh);
     border: solid black 0px;
 }
 #mouse{
