@@ -11,10 +11,9 @@ App to control computer's keyboard and mouse from phone through local network.
 1. Clone or download the repository
 2. Go to /Executable
 3. Run Remote.exe
-4. If permissions are requested, check all boxed and accept
-5. If the setup was successful, the terminal will print some guidelines and the IP:PORT.
-6. Connect your phone to the same network as the computer and open any web browser (preferably Google Chrome). Go to the IP:PORT.
-7. Done!
+4. If permissions are requested, check all the boxes and accept. When the setup is done, the terminal will print some guidelines and an IP:PORT.
+5. Connect your phone to the same network as the computer and open any web browser (preferably Google Chrome). Go to the IP:PORT.
+6. Done! Now you can use Remote.
 
 # Special considerations
 After the instructions, the terminal will display IP:Port to
