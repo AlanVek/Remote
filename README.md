@@ -8,7 +8,7 @@ App to control computer's keyboard and mouse from phone through local network.
 # Restrictions
 - Both computer and phone must be connected to the same network.
 
-# Instrucciones
+# Instructions
 
 After the instructions, the terminal will display IP:Port to
 which the user must connect using any web browser. Both phone
