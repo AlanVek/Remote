@@ -2,8 +2,8 @@
 from http.server import BaseHTTPRequestHandler
 
 # Keyboard
-from Code.Handler.Pynput.keyDict import *
-from Code.Handler.Pynput.mouseDict import *
+from Request_Handler.Pynput.keyDict import *
+from Request_Handler.Pynput.mouseDict import *
 
 # URL parsing
 from urllib.parse import unquote
@@ -36,10 +36,10 @@ def resource_path(relative_path):
 
 # Updates Behaviour.js with current IP for requests.
 def update_ip(cls):
-    with open(resource_path('Code/Handler/templates/js/Keyboard.js'), 'rt') as file: data = file.read()
+    with open(resource_path('Code/Request_Handler/templates/js/Keyboard.js'), 'rt') as file: data = file.read()
 
     data = data.replace(data[data.find('const ip =') : data.find('const ip =') + 39], f"const ip = 'http://{cls.IP}:8000/'; ")
-    with open(resource_path('Code/Handler/templates/js/Keyboard.js'), 'wt') as file: file.write(data)
+    with open(resource_path('Code/Request_Handler/templates/js/Keyboard.js'), 'wt') as file: file.write(data)
 
 # Class RHandler for server.
 class RHandler(BaseHTTPRequestHandler):
@@ -126,7 +126,7 @@ class RHandler(BaseHTTPRequestHandler):
             if not len(self.files[variable]):
 
                 # Loads file in its key from self.files
-                with open(resource_path(f'Code/Handler/templates/{location}'), 'rt') as file: self.files[variable] = file.read()
+                with open(resource_path(f'Code/Request_Handler/templates/{location}'), 'rt') as file: self.files[variable] = file.read()
 
             # Writes output to client
             self.wfile.write(self.files[variable].encode('utf-8'))

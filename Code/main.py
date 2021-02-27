@@ -3,7 +3,7 @@ from http.server import HTTPServer
 from socket import gethostname, gethostbyname
 
 # Handler
-from Handler.Handler import RHandler, update_ip, resource_path, sys
+from Request_Handler.Handler import RHandler, update_ip, resource_path, sys
 
 def print_instructions():
     with open (resource_path("Code\\Instructions.txt"), 'rb') as file: text = file.read()
