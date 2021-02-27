@@ -11,17 +11,19 @@
 * apretar "Send" del programa o "Ir" del telado del celular.
 * "Ir" es equivalente a apretar el botón "enter".
 ****************************************************************
-* Para usar HotKeys (ctrl, Alt_GR, shift), escribir la segunda
+* Para usar HotKeys (ctrl), escribir la segunda
 * tecla en el input y apretar la primera tecla.
 
 Ejemplo: ctrl+v ---> Escribir 'v' (o 'V') y apretar 'ctrl'.
 ****************************************************************
-* Cuando 'Selection' esté activado, todas las teclas se
-* comportarán igual, salvo las flechas. Éstas se comportarán
-* como si 'Shift' estuviera también apretado, con lo cual cumple
-* la función de selección.
 ****************************************************************
-* Para los botones (salvo ctrl, alt y shift), todo el texto que
+* Si el checkbox "Selection" está marcado, todas las teclas se
+* comportarán normalmente, salvo las flechas. Éstas se
+* comportarán como si "Shift" estuviera apretado, es decir,
+* cumplirán la función de selección.
+****************************************************************
+****************************************************************
+* Para los botones (salvo ctrl), todo el texto que
 * esté escrito en el input será escrito antes de apretar dicho
 * botón.
 
