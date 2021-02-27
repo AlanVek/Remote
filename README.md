@@ -1,45 +1,47 @@
 # Remote
 
-App para conectarse desde el celular y manejar el teclado y mouse de la computadora de manera remota a través del servidor local.
+App to control computer's keyboard and mouse from phone through local network.
 
-# Requerimientos
+# Requirements
 - Windows
 
-# Restricciones
-- Tanto la computadora como el celular deben estar conectadas a la misma red.
+# Restrictions
+- Both computer and phone must be connected to the same network.
 
 # Instrucciones
 
-Luego de las instrucciones, aparecerá la dirección IP y el
-puerto para entrar con el celular desde cualquier navegador.
-El celular y la computadora deben estar conectados a la misma red.
+After the instructions, the terminal will display IP:Port to
+which the user must connect using any web browser. Both phone
+and computer must be connected to the same network.
 ****************************************************************
-Para ingresar texto, escribirlo en el cuadro de input y
-apretar "Send" del programa o "Ir" del telado del celular.
-"Ir" es equivalente a apretar el botón "enter".
+To enter text, the user must write it in the text-input slot and
+press "Send".
 ****************************************************************
-Para usar HotKeys (ctrl), escribir la segunda
-tecla en el input y apretar la primera tecla.
+To use hotkeys (ctrl), the user must write the second key in the
+text-input slot and press the special key.
 
-Ejemplo: ctrl+v ---> Escribir 'v' (o 'V') y apretar 'ctrl'.
+Example: 
+Objective: ctrl+v
+Steps: Write 'v' (or 'V') and press 'ctrl'.
 ****************************************************************
-Para los botones (salvo ctrl), todo el texto que
-esté escrito en el input será escrito antes de apretar dicho
-botón.
+For special keys (except ctrl), all the text written in the
+text-input slot will be written in the computer before pressing
+said key.
 
-Ejemplo: 'Hello' + enter ---> Escribir 'Hello' y apretar 'Enter'.
+Example: 
+Objective: 'Hello' + enter
+Steps: Write 'Hello' and press 'Enter'.
 ****************************************************************
-Si el checkbox "Selection" está marcado, todas las teclas se
-comportarán normalmente, salvo las flechas. Éstas se
-comportarán como si "Shift" estuviera apretado, es decir,
-cumplirán la función de selección.
+If the checkbox "Selection" is checked, all the keys will
+behave normally, except the arrows. These will behave as if
+"Shift" was pressed, i.e., they will select.
 ****************************************************************
-Apretar "Exit" para salir.
+Press "Exit" to close the program in the computer.
 ****************************************************************
 
 
-# Funciones disponibles
-- Ingreso de texto UTF-8.
+# Available functions
+- UTF-8 text input.
 - Space.
 - Enter.
 - Arrows (Left, Right, Up, Down).
@@ -53,5 +55,5 @@ Apretar "Exit" para salir.
 - Tab
 - Alt + F4 (HotKey).
 - Win + Tab (HotKey).
-- Selección (Shift + [arrows])
-- Movimiento del mouse, y clicks izquierdo y derecho.
+- Selection (Shift + [arrows])
+- Mouse movement and left-right clicks.
