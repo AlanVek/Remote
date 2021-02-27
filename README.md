@@ -16,9 +16,9 @@ App to control computer's keyboard and mouse from phone through local network.
 6. Done! Now you can use Remote.
 
 # Special considerations
-After the instructions, the terminal will display IP:Port to
-which the user must connect using any web browser. Both phone
-and computer must be connected to the same network.
+After the instructions, the terminal will display network and
+IP:Port to which the user must connect using any web browser. 
+Both phone and computer must be connected to the same network.
 ****************************************************************
 To enter text, the user must write it in the text-input slot and
 press "Send".
