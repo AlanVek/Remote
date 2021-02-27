@@ -2,6 +2,7 @@
 from http.server import HTTPServer
 from socket import gethostname, gethostbyname
 from subprocess import Popen, PIPE
+import re
 
 # Handler
 from Request_Handler.Handler import RHandler, update_ip, resource_path, sys
@@ -17,10 +18,8 @@ def get_network_name():
     else:
         try:
             output = output.decode('utf-8')
-            output = output[output.find('Profile') + len('Profile:'):]
-            while output[0] == ' ': output = output[1:]
-            wifinet = output[2: min(output.find('\r'), output.find('\n'))]
-        except IndexError: wifinet = 'Network Not Found'
+            wifinet = dict(map(str.strip, re.split('\s+:\s+', i)) for i in output.strip().splitlines() if i.startswith('    '))['Profile']
+        except: wifinet = 'Network Not Found'
 
     return wifinet
 
