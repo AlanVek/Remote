@@ -1,5 +1,5 @@
 
-const ip = 'http://192.168.0.96:8000/';                                      
+const ip = 'http://192.168.0.96:8000/';                                       
 
 const myFunc = keyword => {
 
@@ -58,7 +58,7 @@ const lclick = 'left';
 const mouseclick = '__click__';
 
 const checkbox = "__checkbox__";
-const hotkey = 'hotkey';
+const hotkey = '__hotkey__';
 
 
 

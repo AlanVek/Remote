@@ -4,7 +4,6 @@ from http.server import BaseHTTPRequestHandler
 # Keyboard
 from keyDict import *
 from mouseDict import *
-# from pyautogui import move
 
 # URL parsing
 from urllib.parse import unquote
@@ -18,10 +17,11 @@ KEYWORD_KEY = '__special__'
 KEY_SEPARATOR = '__separator__'
 QUESTION = '__sign__'
 KEYWORD_EXIT = '__exit__'
-HOTKEY = 'hotkey'
+HOTKEY = '__hotkey__'
 DIST = 5
 MOUSE = '__mouse__'
 CLICK = '__click__'
+CHECKBOX = '__checkbox__'
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
@@ -73,7 +73,7 @@ class RHandler(BaseHTTPRequestHandler):
 
         elif CLICK in self.path: self.click()
 
-        elif '__checkbox__' in self.path: RHandler.selection = not RHandler.selection
+        elif CHECKBOX in self.path: RHandler.selection = not RHandler.selection
 
         # Checks request for HTML
         elif self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass
@@ -180,7 +180,6 @@ class RHandler(BaseHTTPRequestHandler):
         y_rel = float(self.path[ypos_path + 2: ])
 
         mouse_cont.move(x_rel * DIST, y_rel * DIST)
-        # move(x_rel * DIST, y_rel * DIST, _pause=False, duration = .05)
 
     def click(self):
         pos_button = self.path.find(CLICK)
