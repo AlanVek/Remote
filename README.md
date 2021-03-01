@@ -3,6 +3,7 @@ App to control computer's keyboard and mouse from phone through local network.
 
 # Requirements
 - Windows
+- Stable network connection
 
 # Restrictions
 - Both computer and phone must be connected to the same network.
