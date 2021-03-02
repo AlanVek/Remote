@@ -10,6 +10,7 @@ pyinstaller Code/main.py --onefile --hidden-import="pynput.keyboard._win32" ^
 --hidden-import "Code/Request_Handler/Pynput/keyDict.py" ^
 --hidden-import "Code/Request_Handler/Pynput/mouseDict.py" ^
 --exclude pandas --exclude numpy --exclude scipy --exclude PyQt5 ^
---exclude matplotlib --exclude PIL
+--exclude matplotlib --exclude PIL ^
+--icon=Executable/Icon/Controller_Icon.ico
 
 copy .\dist\Remote.exe .\Executable /Y
