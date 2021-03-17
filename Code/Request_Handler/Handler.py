@@ -23,7 +23,7 @@ CLICK = '__click__'
 CHECKBOX = '__checkbox__'
 
 # Behavior parameters
-DIST = 5
+DIST = 10
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
