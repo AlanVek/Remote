@@ -1,5 +1,5 @@
 
-const ip = 'http://192.168.0.96:8000/';                                                               
+const ip = 'http://192.168.0.3:8000/';
 
 const myFunc = keyword => {
 
@@ -9,10 +9,13 @@ const myFunc = keyword => {
     if (keyword === exit_string){
         sender += exit_string;
         document.getElementById("checkbox").checked = false;
+        document.getElementById("hold_mouse").checked = false;
     }
     else{
         if (keyword.indexOf(hotkey) !== -1) sender += keyword;
         else if (keyword.indexOf(mouse) !== -1 || keyword.indexOf(mouseclick) !== -1) sender += keyword;
+        else if (keyword.indexOf(checkbox) != -1) sender += keyword + String(document.getElementById("checkbox").checked);
+        else if (keyword.indexOf(hold) != -1) sender += keyword + String(document.getElementById("hold_mouse").checked);
         else{
             if (keyword !== go_string) sender += keyboard + keyword + key_separator;
             sender += document.getElementById(input).value;
@@ -59,7 +62,4 @@ const mouseclick = '__click__';
 
 const checkbox = "__checkbox__";
 const hotkey = '__hotkey__';
-
-
-
-
+const hold = '__hold__'
