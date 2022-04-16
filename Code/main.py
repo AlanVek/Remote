@@ -5,7 +5,7 @@ import platform
 p = platform.system()
 
 # Handler
-from Request_Handler.Handler import RHandler, update_ip, resource_path, sys, join
+from Request_Handler.Handler import RHandler, update_ip, sys
 
 if p == 'Windows':
     from socket import gethostname, gethostbyname
@@ -19,8 +19,53 @@ elif p == 'Linux':
 else: sys.exit()
 
 def print_instructions():
-    with open (resource_path(join("Code", "Instructions.txt")), 'rb') as file: text = file.read()
-    print(text.decode('utf-8'))
+    from textwrap import dedent
+    print(
+        dedent(
+            """
+            ******************************************************************
+                Remote (Alan Vekselman, Natán Vekselman - 2021)
+            ******************************************************************
+
+            ******************************************************************
+            * After the instructions, the terminal will display network and
+            * IP:Port to which the user must connect using any web browser. 
+            * Both phone and computer must be connected to the same network.
+            ******************************************************************
+            * To enter text, the user must write it in the text-input slot and
+            * press "Send".
+            ******************************************************************
+            * To use hotkeys (ctrl), the user must write the second key in the
+            * text-input slot and press the special key.
+
+            Example: 
+
+            Objective: ctrl+v
+
+            Steps: Write 'v' (or 'V') and press 'ctrl'.
+            ******************************************************************
+            * For special keys (except ctrl), all the text written in the
+            * text-input slot will be written in the computer before pressing
+            * said key.
+
+            Example: 
+
+            Objective: 'Hello' + enter
+
+            Steps: Write 'Hello' and press 'Enter'.
+            ******************************************************************
+            * While the checkbox "Alt" is checked, 'alt' will be held down
+            * (the intention is to use, for example, in combination with 'tab'
+            * to change tabs).
+            ******************************************************************
+            * While the checkbox "Lclick" is checked, the left click will be
+            * held down. To click, touch the word Lclick (not the checkbox).
+            ******************************************************************
+            * Press "Exit" to close the program in the computer.
+            ******************************************************************
+            """
+        )
+    )
 
 def get_network_name():
     if p == 'Windows':
