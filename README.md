@@ -2,7 +2,7 @@
 App to control computer's keyboard and mouse from phone through local network.
 
 # Requirements
-- Windows
+- Windows/Linux
 - Stable network connection
 
 # Restrictions
@@ -10,11 +10,10 @@ App to control computer's keyboard and mouse from phone through local network.
 
 # Instructions
 1. Clone or download the repository
-2. Go to /Executable
-3. Run Remote.exe
-4. If permissions are requested, check all the boxes and accept. When the setup is done, the terminal will print some guidelines, a network and an IP:PORT.
-5. Connect your phone to the specified network and open any web browser (preferably Google Chrome). Go to the specified IP:PORT.
-6. Done! Now you can use Remote.
+2. Run Code/main.py
+3. If permissions are requested, check all the boxes and accept. When the setup is done, the terminal will print some guidelines, a network and an IP:PORT.
+4. Connect your phone to the specified network and open any web browser (preferably Google Chrome). Go to the specified IP:PORT.
+5. Done! Now you can use Remote.
 
 # Special considerations
 After the instructions, the terminal will display network and

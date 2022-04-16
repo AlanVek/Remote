@@ -5,7 +5,6 @@ pyinstaller Code/main.py --onefile --hidden-import="pynput.keyboard._win32" ^
 --add-data "Code/Request_Handler/templates/js/Behavior.js;Code/Request_Handler/templates/js" ^
 --add-data "Code/Request_Handler/templates/js/Keyboard.js;Code/Request_Handler/templates/js" ^
 --add-data "Code/Request_Handler/templates/js/Mouse.js;Code/Request_Handler/templates/js" ^
---add-data "Code/Instructions.txt;Code" ^
 --hidden-import "Code/Request_Handler/Handler.py" ^
 --hidden-import "Code/Request_Handler/Pynput/keyDict.py" ^
 --hidden-import "Code/Request_Handler/Pynput/mouseDict.py" ^
