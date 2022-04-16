@@ -10,7 +10,7 @@ from urllib.parse import unquote
 
 # PyInstaller patches
 import sys
-from os.path import abspath, join
+from os.path import abspath, join, split
 
 # Keywords
 KEYWORD_KEY = '__special__'
@@ -33,13 +33,13 @@ def resource_path(relative_path):
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except AttributeError:
-        base_path = abspath("..")
+        base_path = split(__file__)[0]
 
     return join(base_path, relative_path)
 
 # Updates Keyboard.js with current IP for requests.
 def update_ip(cls):
-    p = resource_path(join('Code', 'Request_Handler', 'templates', 'js', 'Keyboard.js'))
+    p = resource_path(join('templates', 'js', 'Keyboard.js'))
     with open(p, 'rt') as file: data = file.read()
 
     for line in data.splitlines():
@@ -151,7 +151,7 @@ class RHandler(BaseHTTPRequestHandler):
                 # Loads file in its key from self.files
                 with open(
                     resource_path(
-                        join('Code', 'Request_Handler', 'templates', f'{location}')
+                        join('templates', f'{location}')
                     ), 'rt') as file: self.files[variable] = file.read()
 
             # Writes output to client
