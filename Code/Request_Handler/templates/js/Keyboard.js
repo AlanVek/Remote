@@ -1,5 +1,5 @@
 
-const ip = 'http://192.168.0.3:8000/';
+const ip = 
 
 const myFunc = keyword => {
 
