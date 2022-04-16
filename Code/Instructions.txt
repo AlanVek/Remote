@@ -29,9 +29,12 @@ Objective: 'Hello' + enter
 
 Steps: Write 'Hello' and press 'Enter'.
 ******************************************************************
-* If the checkbox "Selection" is checked, all the keys will
-* behave normally, except the arrows. These will behave as if
-* "Shift" was pressed, i.e., they will select.
+* While the checkbox "Alt" is checked, 'alt' will be held down
+* (the intention is to use, for example, in combination with 'tab'
+* to change tabs).
+******************************************************************
+* While the checkbox "Lclick" is checked, the left click will be
+* held down. To click, touch the word Lclick (not the checkbox).
 ******************************************************************
 * Press "Exit" to close the program in the computer.
 ******************************************************************
