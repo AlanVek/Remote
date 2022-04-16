@@ -21,9 +21,10 @@ HOTKEY = '__hotkey__'
 MOUSE = '__mouse__'
 CLICK = '__click__'
 CHECKBOX = '__checkbox__'
+HOLD = '__hold__'
 
 # Behavior parameters
-DIST = 10
+DIST = 12
 
 # Workaround for PyInstaller dependencies.
 def resource_path(relative_path):
@@ -38,16 +39,21 @@ def resource_path(relative_path):
 
 # Updates Keyboard.js with current IP for requests.
 def update_ip(cls):
-    with open(resource_path('Code/Request_Handler/templates/js/Keyboard.js'), 'rt') as file: data = file.read()
+    p = resource_path(join('Code', 'Request_Handler', 'templates', 'js', 'Keyboard.js'))
+    with open(p, 'rt') as file: data = file.read()
 
-    data = data.replace(data[data.find('const ip =') : data.find('const ip =') + 39], f"const ip = 'http://{cls.IP}:8000/'; ")
-    with open(resource_path('Code/Request_Handler/templates/js/Keyboard.js'), 'wt') as file: file.write(data)
+    for line in data.splitlines():
+        if line.startswith('const ip ='): break
+
+    data = data.replace(line, f"const ip = 'http://{cls.IP}:8000/';")
+    with open(p, 'wt') as file: file.write(data)
 
 # Class RHandler for server.
 class RHandler(BaseHTTPRequestHandler):
 
     running = True
     selection = False
+    holding = False
 
     # Project files
     files = {
@@ -77,22 +83,34 @@ class RHandler(BaseHTTPRequestHandler):
         elif CLICK in self.path: self.click()
 
         # Checkbox handling -- Selection
-        elif CHECKBOX in self.path: RHandler.selection = not RHandler.selection
+        elif CHECKBOX in self.path:
+            value = True if self.path[self.path.index(CHECKBOX) + len(CHECKBOX):] == 'true' else False
+            if value and not RHandler.selection: key_cont.press(keyDict['alt'])
+            elif not value and RHandler.selection: key_cont.release(keyDict['alt'])
+            RHandler.selection = value
+
+        elif HOLD in self.path:
+            value = True if self.path[self.path.index(HOLD) + len(HOLD):] == 'true' else False
+            if not value:
+                if not RHandler.holding: self.path = CLICK + 'left'; self.click()
+                else: mouse_cont.release(mouseDict['left'])
+            elif not RHandler.holding: mouse_cont.press(mouseDict['left'])
+            RHandler.holding = value
 
         # Checks request for HTML
         elif self.req_file(posible = ['/', '/HTML.html', ], variable = 'html', location = 'HTML.html'): pass
 
         # Checks request for CSS
-        elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = 'css\\style.css'): pass
+        elif self.req_file(posible = ['/css/style.css'], variable = 'css', location = join('css', 'style.css')): pass
 
         # Checks request for JS Behavior
-        elif self.req_file(posible = ['/js/Behavior.js'], variable = 'js_beh', location = 'js\\Behavior.js'): pass
+        elif self.req_file(posible = ['/js/Behavior.js'], variable = 'js_beh', location = join('js', 'Behavior.js')): pass
 
         # Checks request for JS Keyboard
-        elif self.req_file(posible = ['/js/Keyboard.js'], variable = 'js_key', location = 'js\\Keyboard.js'): pass
+        elif self.req_file(posible = ['/js/Keyboard.js'], variable = 'js_key', location = join('js', 'Keyboard.js')): pass
 
         # Checks request for JS Mouse.
-        elif self.req_file(posible = ['/js/Mouse.js'], variable = 'js_mouse', location = 'js\\Mouse.js'): pass
+        elif self.req_file(posible = ['/js/Mouse.js'], variable = 'js_mouse', location = join('js', 'Mouse.js')): pass
 
         # Hotkey handling
         elif HOTKEY in self.path:
@@ -122,7 +140,7 @@ class RHandler(BaseHTTPRequestHandler):
         return
 
     # Loads file and writes it to client
-    def req_file(self, posible : [list[str], tuple[str]], variable : str, location : str):
+    def req_file(self, posible, variable : str, location : str):
 
         # Checks if path is one of the posibilities
         if self.path in posible:
@@ -131,7 +149,10 @@ class RHandler(BaseHTTPRequestHandler):
             if not len(self.files[variable]):
 
                 # Loads file in its key from self.files
-                with open(resource_path(f'Code/Request_Handler/templates/{location}'), 'rt') as file: self.files[variable] = file.read()
+                with open(
+                    resource_path(
+                        join('Code', 'Request_Handler', 'templates', f'{location}')
+                    ), 'rt') as file: self.files[variable] = file.read()
 
             # Writes output to client
             self.wfile.write(self.files[variable].encode('utf-8'))
@@ -160,8 +181,7 @@ class RHandler(BaseHTTPRequestHandler):
         self.just_text()
 
         # Taps key
-        if RHandler.selection and key in ['up', 'down', 'left', 'right']: hotkey('shift', key)
-        else: key_cont.tap(keyDict[key])
+        key_cont.tap(keyDict[key])
 
     # Text input handling
     def just_text(self):
